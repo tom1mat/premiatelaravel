@@ -7,25 +7,25 @@
                 <div class="block-content">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Usuarios</h1>
+                            <h1>Sorteos</h1>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Pais</th>
-                                        <th>Tipo</th>
-                                        <th>Email</th>
+                                        <th>Id</th>
+                                        <th>Sorteo</th>
+                                        <th>Fecha</th>
+                                        <th>Edit</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($usuarios as $each)
+                                    @foreach($sorteos as $each)
                                         <tr>
-                                            <td>{{ $each->nombre }}</td>
-                                            <td>{{ $each->apellido }}</td>
-                                            <td>{{ $each->pais }}</td>
-                                            <td>{{ $each->tipo }}</td>
-                                            <td>{{ $each->email }}</td>
+                                            <td>{{ $each->id }}</td>
+                                            <td>{{ $each->sorteo }}</td>
+                                            <td>{{ $each->fecha }}</td>
+                                            <td><a href="{{ route("sorteos.edit", $each->id) }}"><i class="fa fa-edit"></i></a></td>
+                                            <th><a href="{{ route("sorteos.destroy", $each->id) }}"><i class="fa fa-trash"></i></a></th>
                                         </tr>
                                     @endforeach
                                 </tbody>

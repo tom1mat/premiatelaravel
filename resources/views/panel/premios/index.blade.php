@@ -7,25 +7,25 @@
                 <div class="block-content">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Usuarios</h1>
+                            <h1>Premios</h1>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Pais</th>
-                                        <th>Tipo</th>
-                                        <th>Email</th>
+                                        <th>Id</th>
+                                        <th>Premio</th>
+                                        <th>Imagen</th>
+                                        <th>Video</th>
+                                        <th>Editar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($usuarios as $each)
+                                    @foreach($premios as $each)
                                         <tr>
-                                            <td>{{ $each->nombre }}</td>
-                                            <td>{{ $each->apellido }}</td>
-                                            <td>{{ $each->pais }}</td>
-                                            <td>{{ $each->tipo }}</td>
-                                            <td>{{ $each->email }}</td>
+                                            <td>{{ $each->id }}</td>
+                                            <td>{{ $each->premio }}</td>
+                                            <td>{{ $each->imagen }}</td>
+                                            <td>{{ $each->video }}</td>
+                                            <td><a href="{{ route("sorteos.edit", $each->id) }}"><i class="fa fa-edit"></i></a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
