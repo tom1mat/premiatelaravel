@@ -30,19 +30,21 @@ class PremiosController extends Controller
     public function store(Request $request){
         $validatedData = $request->validate([
             'premio' => 'required',
-            'fecha' => 'date',
+            'imagen' => 'required',
         ]);
 
-        $fecha = new Carbon($validatedData["fecha"]);
-        $now = Carbon::now();
-        if($fecha->diff($now)->days < 30){
-            return view("panel.premios.create")->withErrors("La fecha debe ser mayor a 30 días");
+        if($path = $request->imagen->store('premios')){
+            $premio = Premio::create($validatedData);
+            $premio->imagen = $path;
+            $premio->save();
+        }else{
+            return redirect()->back()->withErrors("No se pudo crear el premio ERR1");
         }
-
-        $premio = Premio::create($validatedData);
 
         if($premio)
             return redirect()->route('premios.index')->with("success", "El premio $premio->premio ha sido creado correctamente.");
+        else
+            return redirect()->back()->withErrors("No se pudo crear el premio ERR2");
 
         //No devuelvo asi la vista porque no se envia lo que va en wl with.
         //return view("panel.premios.create")->with("success", "El premio ha sido creado correctamente.");
@@ -51,8 +53,15 @@ class PremiosController extends Controller
     public function update($id, Request $request){
         $validatedData = $request->validate([
             'premio' => 'required',
-            'fecha' => 'date',
         ]);
+
+        if(isset($request->imagen)){
+            if($path = $request->imagen->store('premios')){
+                $validatedData["imagen"] = $path;
+            }else{
+                return redirect()->back()->withErrors("No se pudo editar el premio ERR1");
+            }
+        }
 
         $premio = Premio::find($id);
 

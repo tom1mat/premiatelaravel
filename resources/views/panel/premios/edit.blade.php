@@ -9,14 +9,15 @@
                         <div class="col-lg-12">
                             <h1>Editar premio</h1>
                             {!! Form::open(
-                                ['route' => ['premios.update', $premio->id],
-                                 'method'=>'put',
-                                 'enctype' => 'multipart/form-data'
-                                ])
+                               ['route' => ['premios.update', $premio->id],
+                                'method'=>'put',
+                                'enctype' => 'multipart/form-data'
+                               ])
                             !!}
-                                <input type="text" name="premio" value="{{ $premio->premio }}" class="form-control">
-                                <input type="date" name="imagen" value="{{ $sorteo->fecha }}" class="form-control">
-                                <button class="btn btn-primary">Editar sorteo</button>
+                            <input type="text" required name="premio" placeholder="Nombre del sorteo" value="{{ $premio->premio }}" class="form-control">
+                            <input type="file" name="imagen" accept="image/x-png,image/gif,image/jpeg" class="form-control">
+                            <input type="text" name="video" placeholder="Video URL" value="{{ $premio->video }}" class="form-control">
+                            <button class="btn btn-primary">Editar sorteo</button>
                             {!! Form::close() !!}
                         </div>
                     </div>

@@ -30,7 +30,7 @@
     <!-- Main Container -->
     <main id="main-container">
         <!-- Hero Content -->
-        <div class="bg-image" style="background-image: url('{{ asset('public/assets/img/photos/photo31@2x.jpg') }}');">
+        <div class="bg-image" style="background-image: url('{{ asset('public/assets/img/photo31@2x.jpg') }}');">
             <div class="bg-primary-dark-op">
                 <!-- Header -->
                 <section class="content content-full content-boxed overflow-hidden">
@@ -101,7 +101,7 @@
                 <!-- END Section Content -->
             </section>
             <div class="img-overlay">
-                <img class="img-responsive" src="assets/img/photos/photo38@2x.jpg" alt="">
+                <img class="img-responsive" src="{{ asset('public/assets/img/photo38@2x.jpg') }}" alt="">
             </div>
         </div>
         <!-- END Explore -->
@@ -128,7 +128,7 @@
                 <!-- END Section Content -->
             </section>
             <div class="img-overlay">
-                <img class="img-responsive" src="assets/img/photos/photo37@2x.jpg" alt="">
+                <img class="img-responsive" src="{{ asset('public/assets/img/photo37@2x.jpg') }}" alt="">
             </div>
         </div>
         <!-- END Flights -->
@@ -155,7 +155,7 @@
                 <!-- END Section Content -->
             </section>
             <div class="img-overlay">
-                <img class="img-responsive" src="assets/img/photos/photo39@2x.jpg" alt="">
+                <img class="img-responsive" src="{{ asset('public/assets/img/photo39@2x.jpg') }}" alt="">
             </div>
         </div>
         <!-- END Hotels -->
@@ -173,11 +173,6 @@
         </div>
         <!-- END Call to action -->
 
-        <!-- Google Maps, initialized in js/pages/frontend_travel_package.js, for more examples you can check out https://hpneo.github.io/gmaps/ -->
-        <div class="img-overlay">
-            <div class="bg-white" id="js-map-travel" style="height: 500px;"></div>
-        </div>
-
         <!-- More packages -->
         <div class="bg-gray-lighter">
             <section class="content content-full content-boxed">
@@ -187,19 +182,9 @@
                     <h2 class="h1 text-black">Check out these special packages tailored only for you.</h2>
                 </div>
                 <div class="row push-50">
+                    @for($i = 0; $i < 10; $i++)
                     <div class="col-sm-6 col-md-4">
-                        <a class="block block-themed block-link-hover2 bg-image" style="background-image: url('assets/img/photos/photo35.jpg');" href="frontend_travel_package.html">
-                            <div class="block-header text-right push-150">
-                                <span class="text-white"><i class="fa fa-heart"></i></span>
-                            </div>
-                            <div class="block-content bg-city-op">
-                                <h2 class="font-w700 h3 push-10 text-white text-uppercase">Paris</h2>
-                                <p class="text-white-op">Romantic getaway</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <a class="block block-themed block-link-hover2 bg-image" style="background-image: url('assets/img/photos/photo29.jpg');" href="frontend_travel_package.html">
+                        <a class="block block-themed block-link-hover2 bg-image" style="background-image: url({{ asset('public/assets/img/photo29.jpg') }});" href="frontend_travel_package.html">
                             <div class="block-header text-right push-150">
                                 <span class="text-white"><i class="fa fa-heart"></i></span>
                             </div>
@@ -209,17 +194,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-sm-6 col-md-4">
-                        <a class="block block-themed block-link-hover2 bg-image" style="background-image: url('assets/img/photos/photo33.jpg');" href="frontend_travel_package.html">
-                            <div class="block-header text-right push-150">
-                                <span class="text-white-op"><i class="fa fa-heart"></i></span>
-                            </div>
-                            <div class="block-content bg-amethyst-op">
-                                <h2 class="font-w700 h3 push-10 text-white text-uppercase">San Francisco</h2>
-                                <p class="text-white-op">The start-up journey</p>
-                            </div>
-                        </a>
-                    </div>
+                    @endfor
                 </div>
                 <!-- END Section Content -->
             </section>
@@ -320,8 +295,6 @@
 <!-- Google Maps API Key (you will have to obtain a Google Maps API key to use Google Maps) -->
 <!-- For more info please have a look at https://developers.google.com/maps/documentation/javascript/get-api-key#key -->
 
-<!-- Page JS Code -->
-<script src="{{ asset('public/assets/js/pages/frontend_travel_package.js') }}"></script>
 <script>
     jQuery(function () {
         // Init page helpers (Appear plugin)

@@ -10,11 +10,11 @@
                             <h1>Crear premio</h1>
                             {!! Form::open(
                                 ['route' => 'premios.store',
-                                 'method'=>'put',
+                                 'method'=>'post',
                                  'enctype' => 'multipart/form-data'
                                 ])
                             !!}
-                                <input type="text" name="premio" placeholder="Premio" class="form-control">
+                                <input type="text" name="premio" placeholder="Nombre del premio" class="form-control">
                                 <input type="file" name="imagen" accept="image/x-png,image/gif,image/jpeg" class="form-control">
                                 <input type="text" name="video" placeholder="Video URL" class="form-control">
                                 <button class="btn btn-primary">Crear</button>

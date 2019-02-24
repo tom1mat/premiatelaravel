@@ -23,9 +23,9 @@
                                         <tr>
                                             <td>{{ $each->id }}</td>
                                             <td>{{ $each->premio }}</td>
-                                            <td>{{ $each->imagen }}</td>
+                                            <td><img width="100" src="{{ asset("storage/app/$each->imagen") }}"></td>
                                             <td>{{ $each->video }}</td>
-                                            <td><a href="{{ route("sorteos.edit", $each->id) }}"><i class="fa fa-edit"></i></a></td>
+                                            <td><a href="{{ route("premios.edit", $each->id) }}"><i class="fa fa-edit"></i></a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

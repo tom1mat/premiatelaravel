@@ -11,9 +11,6 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 
-    <!-- Stylesheets -->
-    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">--}}
-    <link rel="stylesheet" href="{{ asset('public/assets/css/css/simple-line-icons.css') }}">
     <!-- Web fonts -->
     {{--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">--}}
     <link rel="stylesheet" href="{{ asset('public/assets/css/google-fonts.css') }}">
@@ -62,9 +59,8 @@
                     <a class="h5 text-white">
 
                         <!--<i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">Grupo Rodríguez</span>-->
-                        <a href="index_mapa.php">
-                            <img src="icono_logo.png">
-                            <img class='sidebar-mini-hide' src="texto_logo.png">
+                        <a>
+                            <i class="glyphicon glyphicon-cog"></i>
                         </a>
                     </a>
                 </div>
@@ -73,47 +69,38 @@
                 <!-- Side Content -->
                 <div class="side-content side-content-full">
                     <ul class="nav-main">
-                        <li>
-                            <a href="index_mapa.php?seccion=mapa"><i class="icon-map"></i><span class="sidebar-mini-hide">Mapa</span></a>
-                        </li>
                         <li class="open">
-                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="glyphicon glyphicon-map-marker"></i><span class="sidebar-mini-hide">Marcadores</span></a>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-users"></i><span class="sidebar-mini-hide">Usuarios</span></a>
                             <ul>
                                 <li>
-                                    <a href="index_mapa.php?seccion=ingresar_marcador">Ingresar marcador</a>
+                                    <a href="{{ route("usuarios.index") }}">Ver/Editar usuarios</a>
                                 </li>
                                 <li>
-                                    <a href="index_mapa.php?seccion=editar_marcador">Ver/Editar marcadores</a>
-                                </li>
-                                <!--<li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Sub Level 2</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Link 2-1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Link 2-2</a>
-                                        </li>
-                                    </ul>
-                                </li> -->
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="glyphicon glyphicon-cog"></i><span class="sidebar-mini-hide">Gestionar Marcadores</span></a>
-                            <ul>
-                                <li>
-                                    <a href="index_mapa.php?seccion=gestionar_marcadores">Calcular Recorridos</a>
-                                </li>
-                                <li>
-                                    <a href="index_mapa.php?seccion=perimetro">Per&iacutemetro</a>
+                                    <a href="{{ route("usuarios.create") }}">Nuevo usuario</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="index_mapa.php?seccion=editar_noticias"><i class="glyphicon glyphicon-duplicate"></i><span class="sidebar-mini-hide">Editar noticias</span></a>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-trophy"></i><span class="sidebar-mini-hide">Premios</span></a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route("premios.index") }}">Ver/Editar premios</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route("premios.create") }}">Nuevo premio</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="index_mapa.php?seccion=logout"><i class="glyphicon glyphicon-off"></i><span class="sidebar-mini-hide">Salir</span></a>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-gift"></i><span class="sidebar-mini-hide">Sorteos</span></a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route("sorteos.index") }}">Ver/Editar sorteos</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route("sorteos.create") }}">Nuevo sorteo</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
