@@ -7,12 +7,10 @@
                 <div class="block-content">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Crear Sorteo</h1>
-                            {!! Form::open(['route' => 'sorteos.store']) !!}
-                            {{ Form::select('premio_id', $premios) }}
-                                <input type="text" name="sorteo">
-                                <input type="date" name="fecha">
-                                <button class="btn btn-primary">Crear</button>
+                            <h1>Editar competidor</h1>
+                            {!! Form::open(['route' => ['competidores.update', $competidor->id], 'method'=>'put']) !!}
+                                <input type="text" name="competidor" value="{{ $competidor->competidor }}">
+                                <button class="btn btn-primary">Editar competidor</button>
                             {!! Form::close() !!}
                         </div>
                     </div>

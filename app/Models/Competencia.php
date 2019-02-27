@@ -10,12 +10,12 @@ class Competencia extends Model
         'competencia', 'local', 'visitante', 'tipo', 'email', 'password',
     ];
 
-    public function local(){
-        return $this->belongsTo('App/Competidor');
+    public function flocal(){
+        return $this->hasOne(Competidor::class,"id", "local");
     }
 
-    public function visitante(){
-        return $this->belongsTo('App/Competidor');
+    public function fvisitante(){
+        return $this->hasOne(Competidor::class,"id", "visitante");
     }
 
     public function usuarios(){

@@ -17,7 +17,7 @@ class CreateSorteosTable extends Migration
             $table->increments('id');
             $table->string("sorteo");
             $table->integer("premio_id")->unsigned()->nullable();
-            $table->foreign("premio_id")->references("id")->on("premios");
+            $table->foreign("premio_id")->references("id")->on("premios")->onDelete('set null');
             $table->date("fecha");
             $table->timestamps();
         });

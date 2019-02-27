@@ -9,6 +9,7 @@
                         <div class="col-lg-12">
                             <h1>Editar sorteo</h1>
                             {!! Form::open(['route' => ['sorteos.update', $sorteo->id], 'method'=>'put']) !!}
+                                {{ Form::select('premio_id', $premios, $sorteo->premio_id) }}
                                 <input type="text" name="sorteo" value="{{ $sorteo->sorteo }}" class="form-control">
                                 <input type="date" name="fecha" value="{{ $sorteo->fecha }}" class="form-control">
                                 <button class="btn btn-primary">Editar sorteo</button>

@@ -18,8 +18,8 @@ class CreateCompetenciasTable extends Migration
             $table->string("competencia");
             $table->integer("local")->unsigned()->nullable();;
             $table->integer("visitante")->unsigned()->nullable();;
-            $table->foreign("local")->references("id")->on("competidores");
-            $table->foreign("visitante")->references("id")->on("competidores");
+            $table->foreign("local")->references("id")->on("competidores")->onDelete('set null');
+            $table->foreign("visitante")->references("id")->on("competidores")->onDelete('set null');
             $table->timestamps();
         });
     }

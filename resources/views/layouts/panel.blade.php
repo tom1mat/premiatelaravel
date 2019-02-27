@@ -75,9 +75,9 @@
                                 <li>
                                     <a href="{{ route("usuarios.index") }}">Ver/Editar usuarios</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route("usuarios.create") }}">Nuevo usuario</a>
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="{{ route("usuarios.create") }}">Nuevo usuario</a>--}}
+                                {{--</li>--}}
                             </ul>
                         </li>
                         <li>
@@ -101,6 +101,34 @@
                                     <a href="{{ route("sorteos.create") }}">Nuevo sorteo</a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-trophy"></i><span class="sidebar-mini-hide">Competidores</span></a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route("competidores.index") }}">Ver/Editar competidor</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route("competidores.create") }}">Nuevo competidor</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-trophy"></i><span class="sidebar-mini-hide">Competencias</span></a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route("competencias.index") }}">Ver/Editar competencias</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route("competencias.create") }}">Nueva competencia</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ route("home") }}"><i class="fa fa-home"></i><span class="sidebar-mini-hide">Ir a la web</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route("logout2") }}"><i class="fa fa-sign-out"></i><span class="sidebar-mini-hide">Logout</span></a>
                         </li>
                     </ul>
                 </div>

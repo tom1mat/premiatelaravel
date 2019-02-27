@@ -10,7 +10,7 @@ class Sorteo extends Model
         'sorteo', 'premio_id', 'fecha'
     ];
 
-    public function premio(){
-        return $this->hasOne("/App/Premio");
+    public function fpremio(){
+        return $this->hasOne(Premio::class, "id", "premio_id");
     }
 }

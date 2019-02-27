@@ -2,28 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Competencia;
+use App\Sorteo;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        dd("ACA2");
-        return view('welcome');
+       $sorteos = Sorteo::whereNotNull("premio_id")->get();
+
+       $competencias = Competencia::whereNotNull("local")->whereNotNull("visitante")->get();
+
+        return view('welcome', compact("sorteos", "competencias"));
     }
 }

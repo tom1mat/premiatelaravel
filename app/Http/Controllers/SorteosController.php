@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Premio;
 use App\Sorteo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,14 +16,16 @@ class SorteosController extends Controller
     }
 
     public function create(){
-        return view("panel.sorteos.create");
+        $premios = Premio::pluck("premio", "id");
+        return view("panel.sorteos.create", compact("premios"));
     }
 
     public function edit($id){
         $sorteo = Sorteo::find($id);
+        $premios = Premio::pluck("premio", "id");
 
         if($sorteo)
-            return view("panel.sorteos.edit", compact("sorteo"));
+            return view("panel.sorteos.edit", compact("sorteo", "premios"));
         else
             return redirect()->route('sorteos.index')->withErrors("El sorteo #$id no existe.");
 
@@ -31,13 +34,14 @@ class SorteosController extends Controller
     public function store(Request $request){
         $validatedData = $request->validate([
             'sorteo' => 'required',
+            'premio_id' => 'required',
             'fecha' => 'date',
         ]);
 
         $fecha = new Carbon($validatedData["fecha"]);
         $now = Carbon::now();
         if($fecha->diff($now)->days < 30){
-            return view("panel.sorteos.create")->withErrors("La fecha debe ser mayor a 30 días");
+            return redirect()->back()->withErrors("La fecha debe ser mayor a 30 días");
         }
 
         $sorteo = Sorteo::create($validatedData);
@@ -52,6 +56,7 @@ class SorteosController extends Controller
     public function update($id, Request $request){
         $validatedData = $request->validate([
             'sorteo' => 'required',
+            'premio_id' => 'required',
             'fecha' => 'date',
         ]);
 
